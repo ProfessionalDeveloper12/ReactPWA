@@ -38,9 +38,9 @@ export default () => {
             <LogoImg src={logo} />
             <LogoText>Treact</LogoText>
           </LogoContainer>
-          <LinksContainer>
-            <Link href="#">Home</Link>
-            <Link href="#">About</Link>
+          {/* <LinksContainer>
+            <Link href="#">United States</Link>
+            <Link href="#">Pricing</Link>
             <Link href="#">Contact Us</Link>
             <Link href="#">Blog</Link>
             <Link href="#">Reviews</Link>
@@ -55,7 +55,7 @@ export default () => {
             <SocialLink href="https://youtube.com">
               <YoutubeIcon />
             </SocialLink>
-          </SocialLinksContainer>
+          </SocialLinksContainer> */}
           <CopyrightText>
             &copy; Copyright 2020, Treact Inc. All Rights Reserved.
           </CopyrightText>

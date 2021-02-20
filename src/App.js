@@ -32,7 +32,7 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 // import Hero from "components/hero/BackgroundAsImage.js";
  //import Hero from "components/hero/BackgroundAsImageWithCenteredContent.js";
 
-// import Features from "components/features/ThreeColSimple.js";
+ //import Features from "components/features/ThreeColSimple.js";
 // import Features from "components/features/ThreeColWithSideImage.js";
 // import Features from "components/features/ThreeColWithSideImageWithPrimaryBackground.js";
 // import Features from "components/features/VerticalWithAlternateImageAndText.js";
@@ -41,12 +41,12 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 // import MainFeature from "components/features/TwoColSingleFeatureWithStats.js";
 // import MainFeature2 from "components/features/TwoColSingleFeatureWithStats2.js";
 // import MainFeature from "components/features/TwoColWithTwoHorizontalFeaturesAndButton.js";
-// import FeatureWithSteps from "components/features/TwoColWithSteps.js";
+ import FeatureWithSteps from "components/features/TwoColWithSteps.js";
 // import FeatureStats from "components/features/ThreeColCenteredStatsPrimaryBackground.js";
 
-// import Pricing from "components/pricing/ThreePlans.js";
+ //import Pricing from "components/pricing/ThreePlans.js";
 // import Pricing from "components/pricing/ThreePlansWithHalfPrimaryBackground.js";
-// import Pricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
+ import Pricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
 
 // import SliderCard from "components/cards/ThreeColSlider.js";
 // import TrendingCard from "components/cards/TwoTrendingPreviewCardsWithImage.js";
@@ -64,7 +64,7 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 // import Testimonial from "components/testimonials/ThreeColumnWithProfileImage.js";
 // import Testimonial from "components/testimonials/SimplePrimaryBackground.js";
 
-// import FAQ from "components/faqs/SimpleWithSideImage.js";
+ import FAQ from "components/faqs/SimpleWithSideImage.js";
 // import FAQ from "components/faqs/SingleCol.js";
 // import FAQ from "components/faqs/TwoColumnPrimaryBackground.js";
 
@@ -76,11 +76,11 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 // import GetStarted from "components/cta/GetStartedLight.js";
 // import DownloadApp from "components/cta/DownloadApp.js";
 
-// import Footer from "components/footers/SimpleFiveColumn.js";
+ //import Footer from "components/footers/SimpleFiveColumn.js";
 // import Footer from "components/footers/FiveColumnWithInputForm.js";
 // import Footer from "components/footers/FiveColumnWithBackground.js";
 // import Footer from "components/footers/FiveColumnDark.js";
-// import Footer from "components/footers/MiniCenteredFooter.js";
+ import Footer from "components/footers/MiniCenteredFooter.js";
 
 /* Ready Made Pages (from demos folder) */
 // import EventLandingPage from "demos/EventLandingPage.js";
@@ -108,9 +108,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    //<AnimationRevealPage>
-      <Hero />
-    //</AnimationRevealPage>
+    <AnimationRevealPage disabled>
+  <Hero />
+  <FeatureWithSteps />
+  <Pricing/>
+  <FAQ/>
+  <Footer/>
+</AnimationRevealPage>
     // return (
     //   <Router>
     //     <Switch>

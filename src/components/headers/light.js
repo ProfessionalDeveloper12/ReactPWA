@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
-
+import Login from "../../login";
 import logo from "../../images/logo.svg";
+import flag from "../../images/united-states.png"
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 
@@ -70,13 +71,13 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    * changing the defaultLinks variable below below.
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
+  
   const defaultLinks = [
+    
     <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
+      <NavLink href="/">United States</NavLink>
       <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#" tw="lg:ml-12!">
+      <NavLink href="/" tw="lg:ml-12!">
         Login
       </NavLink>
       <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink>
