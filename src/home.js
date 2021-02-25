@@ -14,7 +14,6 @@ const Home = () => {
       <HowItWorks/>
       <Features />
       <Pricing/>
-      <Pricing/>
       <FAQ/>
       <Footer/>
     </AnimationRevealPage>)
