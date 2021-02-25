@@ -3,10 +3,12 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
-
+import FormFillUpImage from "images/fill_forms.svg";
+import SecuredData from "images/secured_data.svg";
+import CarryEverywhere from "images/carry_everywhere.svg";
 const Container = tw.div`relative`;
-
-const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
+import { css } from "styled-components/macro"; //eslint-disable-line
+const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-10`;
 
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
 const HeadingDescription = tw.p`mt-4 font-medium text-gray-600 text-center max-w-sm`;
@@ -19,12 +21,12 @@ const Card = styled.div(props => [
 ]);
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`
+  tw`rounded md:w-1/6 lg:w-5/12 xl:w-1/2 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`
 ]);
 const Details = tw.div`mt-4 md:mt-0 md:max-w-md mx-4 sm:mx-8 md:mx-4 lg:mx-8`;
-const Subtitle = tw.div`font-bold tracking-wide text-secondary-100`;
+const Subtitle = tw.div`font-bold tracking-wide text-gray-100`;
 const Title = tw.h4`text-3xl font-bold text-gray-900`;
-const Description = tw.p`mt-2 text-sm leading-loose`;
+const Description = tw.p`mt-2 text-sm leading-loose text-gray-100`;
 const Link = tw.a`inline-block mt-4 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
 
 const SvgDotPattern1 = tw(
@@ -39,59 +41,58 @@ const SvgDotPattern3 = tw(
 const SvgDotPattern4 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-
+const PrimaryBackgroundContainer = tw.div`-mx-8 px-8 text-gray-100`;
 export default () => {
   const cards = [
     {
-      imageSrc:
-        "https://images.unsplash.com/photo-1550699026-4114bbf4fb49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80",
-      subtitle: "Paid",
-      title: "Loachella, NYC",
+      imageSrc: FormFillUpImage,
+      subtitle: "Minutes to signup",
+      title: "Create an account in mintues",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com"
+        "Fill up a super easy form and enjoy the freedom of carry your vaccination form in your pocket hassle-free."
+    },
+
+    {
+      imageSrc: SecuredData,
+      subtitle: "Dont have to worry about your data",
+      title: "Data Security is our top priority.",
+      description:
+      "Your sensitive data will be secured as per the guidelines set by HIPAA."
     },
 
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1543423924-b9f161af87e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-      subtitle: "Free",
-      title: "Rock In Rio, Upstate",
+      CarryEverywhere,
+      subtitle: "Proof in your pocket",
+      title: "Travel and Provide Proof of Documentation With Ease",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com"
-    },
-
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1509824227185-9c5a01ceba0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80",
-      subtitle: "Exclusive",
-      title: "Lollapalooza, Manhattan",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com"
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   ];
-
+  
+  const gradientCss = 
+  css`
+    background: linear-gradient(to bottom,rgba(101, 219, 168, 0), rgba(101, 219, 168, 1), rgba(0, 148, 68, 1), rgba(0, 148, 68, 0));
+  `;
   return (
-    <Container>
-      <SingleColumn>
-        <HeadingInfoContainer>
+    <PrimaryBackgroundContainer css = {gradientCss}>
+    <Container >
+      <SingleColumn >
+        {/* <HeadingInfoContainer>
           <HeadingTitle>Popular Events</HeadingTitle>
           <HeadingDescription>
             Here are some of the most popular events in New York City curated by professionals.
           </HeadingDescription>
-        </HeadingInfoContainer>
+        </HeadingInfoContainer> */}
 
-        <Content>
+        <Content >
           {cards.map((card, i) => (
-            <Card key={i} reversed={i % 2 === 1}>
+            <Card key={i} reversed={i % 2 === 1} >
               <Image imageSrc={card.imageSrc} />
-              <Details>
+              <Details >
                 <Subtitle>{card.subtitle}</Subtitle>
                 <Title>{card.title}</Title>
                 <Description>{card.description}</Description>
-                <Link href={card.url}>See Event Details</Link>
               </Details>
             </Card>
           ))}
@@ -102,5 +103,6 @@ export default () => {
       <SvgDotPattern3 />
       <SvgDotPattern4 />
     </Container>
+    </PrimaryBackgroundContainer>
   );
 };

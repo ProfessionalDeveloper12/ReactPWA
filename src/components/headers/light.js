@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
-import Login from "../../login";
-import logo from "../../images/logo.svg";
+//import Login from "../../login";
+import logo from "../../images/chef-icon.svg";
 import flag from "../../images/united-states.png"
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
@@ -72,42 +72,16 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
   
-// Handling states
-  const [country, setCustomerCountry] = useState('United States');
-
-
-  const handleChange = (event) => {
-    console.log(this);
-  }
-
-const Dropdown = (
-  <select value={country} onChange={handleChange}>
-    <option value="United">
-    {/* <img src={flag} alt="united states flag" style={{width: "30px", height: "30px", float: "left" }}/> */}
-      United States
-    </option>
-    <option value="india">
-    {/* <img src={flag} alt="united states flag" style={{width: "30px", height: "30px", float: "left" }}/> */}
-      India
-    </option>
-  </select>
-  );
-
   const defaultLinks = [
     
     <NavLinks key={1}>
-      <NavLink href="/">
-        {/*Needs to be dropdown showing the countries */}
-        {/* <img src={flag} alt="united states flag" style={{width: "30px", height: "30px", float: "left" }}/>
-        United States */}
-        {Dropdown}
-      </NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/" tw="lg:ml-12!">
-        Login
-      </NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink>
-      </NavLinks>
+      <NavLink href="#">United States</NavLink>
+      <NavLink href="#">Features</NavLink>
+      <NavLink href="#">Pricing</NavLink>
+      <NavLink href="#">Contact Us</NavLink>
+      <NavLink href="/login">Login</NavLink>
+      <PrimaryLink href="#">Signup</PrimaryLink>
+    </NavLinks>
   ];
 
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
@@ -115,16 +89,13 @@ const Dropdown = (
 
   const defaultLogoLink = (
     <LogoLink href="/">
-      <img src={logo} alt="logo" style={{width: "50px", height: "50px" }}/>
-      Treact
+      <img src={logo} alt="logo" />
+      APP NAME
     </LogoLink>
   );
 
-  
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;
-
-
 
   return (
     <Header className={className || "header-light"}>

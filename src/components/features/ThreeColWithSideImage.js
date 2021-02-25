@@ -10,13 +10,9 @@ import defaultCardImage from "images/shield-icon.svg";
 
 import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
 
-import SupportIconImage from "images/support-icon.svg";
-import ShieldIconImage from "images/shield-icon.svg";
-import CustomizeIconImage from "images/customize-icon.svg";
-import FastIconImage from "images/fast-icon.svg";
-import ReliableIconImage from "images/reliable-icon.svg";
-import SimpleIconImage from "images/simple-icon.svg";
-
+import SignupImage from "images/sign-up.svg";
+import QRCodeImage from "images/qr-scan.svg";
+import AccessGrantedImage from "images/check-in.svg";
 const Container = tw.div`relative`;
 
 const ThreeColumnContainer = styled.div`
@@ -33,7 +29,7 @@ const Column = styled.div`
 `;
 
 const Card = styled.div`
-  ${tw`flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left h-full mx-4 px-2 py-8`}
+  ${tw`flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left h-full mx-4 px-2 py-1`}
   .imageContainer {
     ${tw`border text-center rounded-full p-5 flex-shrink-0`}
     img {
@@ -58,7 +54,7 @@ const DecoratorBlob = styled(SvgDecoratorBlob3)`
   ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
 `;
 
-export default ({ cards = null, heading = "Amazing Features", subheading = "Features", description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }) => {
+export default ({ cards = null, heading = "Life Made Easy", subheading = "How it works", description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }) => {
   /*
    * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
    *  1) imageSrc - the image shown at the top of the card
@@ -69,15 +65,12 @@ export default ({ cards = null, heading = "Amazing Features", subheading = "Feat
 
   const defaultCards = [
     {
-      imageSrc: ShieldIconImage,
-      title: "Secure",
-      description: "We strictly only deal with vendors that provide top notch security."
+      imageSrc: SignupImage,
+      title: "Signup",
+      description: "Sign-up for a free account in minutes on our website"
     },
-    { imageSrc: SupportIconImage, title: "24/7 Support" },
-    { imageSrc: CustomizeIconImage, title: "Customizable" },
-    { imageSrc: ReliableIconImage, title: "Reliable" },
-    { imageSrc: FastIconImage, title: "Fast" },
-    { imageSrc: SimpleIconImage, title: "Easy" }
+    { imageSrc: QRCodeImage, title: "Scan QR code" , description: "You can then scan your QR code with any other Vaxtone Host user" },
+    { imageSrc: AccessGrantedImage, title: "Access Granted" , description: "Your host will grant you access once they are satisfied with your verification documents" },
   ];
 
   if (!cards) cards = defaultCards;
@@ -89,6 +82,7 @@ export default ({ cards = null, heading = "Amazing Features", subheading = "Feat
         <Heading>{heading}</Heading>
         {description && <Description>{description}</Description>}
         <VerticalSpacer />
+        <DecoratorBlob />
         {cards.map((card, i) => (
           <Column key={i}>
             <Card>
@@ -105,7 +99,7 @@ export default ({ cards = null, heading = "Amazing Features", subheading = "Feat
           </Column>
         ))}
       </ThreeColumnContainer>
-      <DecoratorBlob />
+      
     </Container>
   );
 };

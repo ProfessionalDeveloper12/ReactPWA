@@ -9,7 +9,6 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as ChevronDownIcon } from "feather-icons/dist/icons/chevron-down.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-7.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-8.svg";
-
 const Subheading = tw(SubheadingBase)`mb-4 text-center`;
 const Heading = tw(SectionHeading)`w-full`;
 const Description = tw(SectionDescription)`w-full text-center`;
@@ -36,7 +35,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-64 w-64 opacity-15 transform -translate-x-2/3 text-primary-500`}
 `;
 
-
+const PrimaryBackgroundContainer = tw.div`-mx-8 px-8 text-gray-100`;
 
 export default ({
   subheading = "FAQS",
@@ -71,8 +70,13 @@ export default ({
     if (activeQuestionIndex === questionIndex) setActiveQuestionIndex(null);
     else setActiveQuestionIndex(questionIndex);
   };
-
+  
+  const gradientCss = 
+  css`
+    background: linear-gradient(to bottom,rgba(101, 219, 168, 0), rgba(101, 219, 168, 1), rgba(0, 148, 68, 1));
+  `;
   return (
+    <PrimaryBackgroundContainer css = {gradientCss}>
     <Container>
       <ContentWithPaddingXl>
         <Column>
@@ -123,5 +127,6 @@ export default ({
       <DecoratorBlob1/>
       <DecoratorBlob2 />
     </Container>
+    </PrimaryBackgroundContainer>
   );
 };

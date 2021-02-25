@@ -11,10 +11,16 @@ import { Container as ContainerBase, ContentWithVerticalPadding, Content2Xl } fr
 import { SectionHeading } from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import logoImageSrc from "images/logo-light.svg";
-import serverIllustrationImageSrc from "images/server-illustration-2.svg";
-
-const PrimaryBackgroundContainer = tw.div`-mx-8 px-8 bg-primary-900 text-gray-100`;
+import logoImageSrc from "images/chef-icon.svg";
+//import serverIllustrationImageSrc from "images/server-illustration-2.svg";
+import styled from "styled-components";
+import ReactPlayer from "react-player";
+//import Login from "../../login.js"
+const gradientCss = 
+  css`
+    background: linear-gradient(to bottom, rgba(101, 219, 168, 1), rgba(0, 148, 68, 1), rgba(0, 148, 68, 0));
+  `;
+const PrimaryBackgroundContainer = tw.div`-mx-8 px-8 text-gray-100`;
 const Header = tw(HeaderBase)`max-w-none -mt-8 py-8 -mx-8 px-8`;
 const NavLink = tw(NavLinkBase)`lg:text-gray-100 lg:hocus:text-gray-300 lg:hocus:border-gray-100`;
 const LogoLink = tw(LogoLinkBase)`text-gray-100 hocus:text-gray-300`;
@@ -35,24 +41,35 @@ export default ({
   description = "Our cloud provisions the best servers, with fast SSD, powerful Xeon Processors, whenever you need it. Oh, and we have 99.9% SLA",
   primaryButtonText = "Start Your 15 Day Free Trial",
   primaryButtonUrl = "#",
-  imageSrc = serverIllustrationImageSrc,
+  //imageSrc = serverIllustrationImageSrc,
 }) => {
   const logoLink = (
     <LogoLink href="/">
       <img src={logoImageSrc} alt="Logo" />
-      Treact
+      APP NAME
     </LogoLink>
   );
   const navLinks = [
     <NavLinks key={1}>
+      <NavLink href="#">United States</NavLink>
       <NavLink href="#">Features</NavLink>
       <NavLink href="#">Pricing</NavLink>
-      <NavLink href="#">Login</NavLink>
+      <NavLink href="#">Contact Us</NavLink>
+      <NavLink href="/login">Login</NavLink>
       <PrimaryLink href="#">Signup</PrimaryLink>
     </NavLinks>
   ];
+  const Actions = styled.div`
+  ${tw`relative max-w-md text-center mx-auto lg:mx-0`}
+  input {
+    ${tw`sm:pr-48 pl-8 py-4 sm:py-5 rounded-full border-2 w-full font-medium focus:outline-none transition duration-300  focus:border-primary-500 hover:border-gray-500`}
+  }
+  button {
+    ${tw`w-full sm:absolute right-0 top-0 bottom-0 bg-primary-300 text-gray-100 font-bold mr-2 my-4 sm:my-2 rounded-full py-4 flex items-center justify-center sm:w-40 sm:leading-none focus:outline-none hover:bg-primary-600 transition duration-300`}
+  }
+`;
   return (
-    <PrimaryBackgroundContainer>
+    <PrimaryBackgroundContainer css = {gradientCss}>
       <Content2Xl>
         <Header logoLink={logoLink} links={navLinks} />
         <Container>
@@ -61,11 +78,20 @@ export default ({
               <TextColumn>
                 <Heading>{heading}</Heading>
                 <Description>{description}</Description>
-                <PrimaryButton as="a" href={primaryButtonUrl}>{primaryButtonText}</PrimaryButton>
+                <br/><br/>
+                <Actions>
+              <input type="text" placeholder="Your E-mail Address" />
+              <button>Get Started</button>
+            </Actions>
               </TextColumn>
-              <IllustrationColumn>
-                <Image src={imageSrc} />
-              </IllustrationColumn>
+              <ReactPlayer controls="true" 
+        url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+      />
+              {/* <IllustrationColumn>
+              <ReactPlayer   controls="true" 
+        url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+      />
+              </IllustrationColumn> */}
             </Row>
           </ContentWithVerticalPadding>
         </Container>

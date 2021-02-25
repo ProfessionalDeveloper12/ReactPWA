@@ -9,9 +9,9 @@ import logo from "images/logo.svg";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
-
+import Header from "components/headers/light.js";
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
-const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
+const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
 const LogoImage = tw.img`h-12 mx-auto`;
@@ -52,11 +52,16 @@ const IllustrationImage = styled.div`
   ${props => `background-image: url("${props.imageSrc}");`}
   ${tw`m-12 xl:m-16 w-full max-w-sm bg-contain bg-center bg-no-repeat`}
 `;
-
+const gradientCss = 
+  css`
+    background: linear-gradient(to bottom, rgba(101, 219, 168, 1), rgba(0, 148, 68, 1), rgba(0, 148, 68, 0));
+  `;
+  const PrimaryBackgroundContainer = tw.div`-mx-8 px-8 text-gray-100`;
 export default ({
+  
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
-  headingText = "Sign In To Treact",
+  headingText = "Sign In To APP NAME",
   socialButtons = [
     {
       iconImageSrc: googleIconImageSrc,
@@ -72,20 +77,22 @@ export default ({
   submitButtonText = "Sign In",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
-  signupUrl = "#",
+  signupUrl = "/signup",
 
 }) => (
-  <AnimationRevealPage>
-    <Container>
+  // <PrimaryBackgroundContainer css = {gradientCss}>
+  <AnimationRevealPage disabled>
+    {/* <Container> */}
+    <Header/>
       <Content>
-        <MainContainer>
-          <LogoLink href={logoLinkUrl}>
+      
+          {/* <LogoLink href={logoLinkUrl}>
             <LogoImage src={logo} />
-          </LogoLink>
+          </LogoLink> */}
           <MainContent>
             <Heading>{headingText}</Heading>
             <FormContainer>
-              <SocialButtonsContainer>
+              {/* <SocialButtonsContainer>
                 {socialButtons.map((socialButton, index) => (
                   <SocialButton key={index} href={socialButton.url}>
                     <span className="iconContainer">
@@ -94,14 +101,14 @@ export default ({
                     <span className="text">{socialButton.text}</span>
                   </SocialButton>
                 ))}
-              </SocialButtonsContainer>
-              <DividerTextContainer>
+              </SocialButtonsContainer> */}
+              {/* <DividerTextContainer>
                 <DividerText>Or Sign in with your e-mail</DividerText>
-              </DividerTextContainer>
+              </DividerTextContainer> */}
               <Form>
                 <Input type="email" placeholder="Email" />
                 <Input type="password" placeholder="Password" />
-                <SubmitButton type="submit">
+                <SubmitButton type="submit" >
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{submitButtonText}</span>
                 </SubmitButton>
@@ -119,11 +126,12 @@ export default ({
               </p>
             </FormContainer>
           </MainContent>
-        </MainContainer>
+       
         <IllustrationContainer>
           <IllustrationImage imageSrc={illustrationImageSrc} />
         </IllustrationContainer>
       </Content>
-    </Container>
+    {/* </Container> */}
   </AnimationRevealPage>
+  /* </PrimaryBackgroundContainer> */
 );

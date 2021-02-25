@@ -2,11 +2,11 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import {Container as ContainerBase } from "components/misc/Layouts.js"
-import logo from "../../images/logo.svg";
+import logoImageSrc from "images/chef-icon.svg";
 import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
-
+import { css } from "styled-components/macro"; //eslint-disable-line
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -27,23 +27,28 @@ const SocialLink = styled.a`
     ${tw`w-5 h-5`}
   }
 `;
-
+const PrimaryBackgroundContainer = tw.div`-mx-8 px-8 text-gray-100`;
 const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`
 export default () => {
+  const gradientCss = 
+  css`
+    background: linear-gradient(to bottom, rgba(0, 148, 68, 1), rgba(101, 219, 168, 1), rgba(101, 219, 168, 0));
+  `;
   return (
-    <Container>
+    <PrimaryBackgroundContainer css = {gradientCss}>
+    {/* <Container> */}
       <Content>
         <Row>
           <LogoContainer>
-            <LogoImg src={logo} />
-            <LogoText>Treact</LogoText>
+            <LogoImg src={logoImageSrc} />
+            <LogoText>APP NAME</LogoText>
           </LogoContainer>
-          {/* <LinksContainer>
+           <LinksContainer>
             <Link href="#">United States</Link>
+            <Link href="#">Features</Link>
             <Link href="#">Pricing</Link>
             <Link href="#">Contact Us</Link>
-            <Link href="#">Blog</Link>
-            <Link href="#">Reviews</Link>
+            <Link href="#">Login</Link>
           </LinksContainer>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
@@ -55,12 +60,13 @@ export default () => {
             <SocialLink href="https://youtube.com">
               <YoutubeIcon />
             </SocialLink>
-          </SocialLinksContainer> */}
+          </SocialLinksContainer>
           <CopyrightText>
-            &copy; Copyright 2020, Treact Inc. All Rights Reserved.
+            &copy; Copyright 2020, Parent company Inc. All Rights Reserved.
           </CopyrightText>
         </Row>
       </Content>
-    </Container>
+    {/* </Container> */}
+    </PrimaryBackgroundContainer>
   );
 };
